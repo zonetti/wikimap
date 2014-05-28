@@ -1,6 +1,6 @@
 # wikimap
 
-Just playing with graphs and wikipedia.
+Just playing with graphs and Wikipedia.
 
 [Demo][demo]
 
