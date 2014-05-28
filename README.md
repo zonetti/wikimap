@@ -4,6 +4,13 @@ Just playing with graphs and wikipedia.
 
 [Demo][demo]
 
+## Install
+
+    $ git clone https://github.com/zonetti/wikimap.git
+    $ cd wikimap
+    $ [sudo] npm install
+    $ node app.js
+
 ## Features
 
 * Recursive searching on Wikipedia for related terms
