@@ -3,7 +3,6 @@
   "version": "0.0.1alpha",
   "private": true,
   "dependencies": {
-    "lodash": "^2.4.1",
     "express": "^4.3.0",
     "ejs": "^1.0.0",
     "async": "^0.9.0",
