@@ -12,7 +12,7 @@ $(document).ready(function() {
   );
 
   graph.on('doubleClick', function(e) {
-    if (e.nodes.length == 0) return false;
+    if (e.nodes.length === 0) return false;
     socket.emit('new search', e.nodes[0]);
   });
 

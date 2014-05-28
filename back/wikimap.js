@@ -1,5 +1,6 @@
 var scrap = require('scrap');
 var async = require('async');
+var logger = require('winston');
 
 var WikiMap = module.exports = function(emitter) {
 
@@ -15,7 +16,7 @@ var WikiMap = module.exports = function(emitter) {
     var parentNode;
     var newEdge = false;
 
-    if (arguments.length == 2) {
+    if (arguments.length === 2) {
       depth = 0;
       done = href;
       url = 'http://LANG.wikipedia.org/w/index.php?search=TERM'
@@ -30,8 +31,20 @@ var WikiMap = module.exports = function(emitter) {
     }
 
     scrap(url, function(err, $) {
+      if (err) {
+        logger.error('Error on requesting', {internal: err});
+        return done();
+      }
+
       var count = 0;
-      var newNode = $('#firstHeading span').text()
+      var newNode;
+
+      try {
+        newNode = $('#firstHeading span').text();
+      } catch(err) {
+        logger.error('Error on scrapping', {internal: err});
+        return done();
+      }
 
       if (depth > options.depth) {
         return done();
@@ -51,9 +64,9 @@ var WikiMap = module.exports = function(emitter) {
       var related = [];
 
       $('#mw-content-text p a').each(function(i, link) {
-        if (options.relation == count) return false;
-        if ($(link).text().charAt(0) != '[') {
-          count++
+        if (parseInt(options.relation, 10) === count) return false;
+        if ($(link).text().charAt(0) !== '[') {
+          count++;
           related.push($(link).attr('href'));
         }
       });
