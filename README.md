@@ -18,7 +18,7 @@ Just playing with graphs and Wikipedia.
 
 ### Powered by [node.js][node.js], [socket.io][socket.io] and [vis.js][vis.js]
 
-[demo]: http://zonetti.com.br/images/wikimap_demo.gif
+[demo]: https://raw.githubusercontent.com/zonetti/wikimap/master/demo.gif
 [node.js]: http://nodejs.org/
 [socket.io]: http://socket.io/
 [vis.js]: http://visjs.org/
