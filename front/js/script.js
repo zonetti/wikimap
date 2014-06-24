@@ -36,7 +36,12 @@ $(document).ready(function() {
 
   socket.on('new edge', function(edge) {
     try {
-      edges.add(edge);
+      edges.add({
+        id: edge.to + '-' + edge.from,
+        from: edge.from,
+        to: edge.to,
+        style: 'arrow'
+      });
     } catch(err) {
       console.log(err);
     }

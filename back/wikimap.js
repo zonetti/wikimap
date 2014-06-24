@@ -54,10 +54,8 @@ var WikiMap = module.exports = function(emitter) {
 
       if (newEdge) {
         emitter.emit('new edge', {
-          id: newNode + '-' + parentNode,
           from: parentNode,
-          to: newNode,
-          style: 'arrow'
+          to: newNode
         });
       }
 
